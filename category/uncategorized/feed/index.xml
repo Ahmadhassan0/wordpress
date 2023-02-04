@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Uncategorized &#8211; TechBlog</title>
+	<atom:link href="https://ahmadhassan0.github.io/wordpress/category/uncategorized/feed/" rel="self" type="application/rss+xml" />
+	<link>https://ahmadhassan0.github.io/wordpress</link>
+	<description>this site only for testing</description>
+	<lastBuildDate>Tue, 17 Jan 2023 08:11:50 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Ai Working System</title>
+		<link>https://ahmadhassan0.github.io/wordpress/ai-working-system/</link>
+					<comments>https://ahmadhassan0.github.io/wordpress/ai-working-system/#respond</comments>
+		
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<pubDate>Tue, 17 Jan 2023 08:11:50 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<guid isPermaLink="false">https://ahmadhassan0.github.io/wordpress/?p=35</guid>
+
+					<description><![CDATA[Enabling this early exit strategy for LMs requires minimal modifications to the training and inference processes. During training, we encourage the model to produce meaningful representations in intermediate layers. Instead of predicting only using the top layer, our learning loss function is a weighted average over the predictions of all layers, assigning higher weight to&#8230; <a class="more-link" href="https://ahmadhassan0.github.io/wordpress/ai-working-system/">Continue reading <span class="screen-reader-text">Ai Working System</span></a>]]></description>
+										<content:encoded><![CDATA[
+<p>Enabling this early exit strategy for LMs requires minimal modifications to the training and inference processes. During training, we encourage the model to produce meaningful representations in intermediate layers. Instead of predicting only using the top layer, our learning loss function is a weighted average over the predictions of all layers, assigning higher weight to top layers. Our experiments demonstrate that this significantly improves the intermediate layer predictions while preserving the full model’s performance. In one model variant, we also include a small&nbsp;<em><a href="https://arxiv.org/abs/2104.08803">early-exit classifier</a></em>&nbsp;trained to classify if the local intermediate layer prediction is consistent with the top layer. We train this classifier in a second quick step where we freeze the rest of the model.</p>
+
+
+
+<p>Once the model is trained, we need a method to allow early-exiting. First, we define a local confidence measure for capturing the model’s confidence in its intermediate prediction. We explore three confidence measures (described in the results section below): (1)&nbsp;<em><a href="https://arxiv.org/abs/2207.07061">softmax response</a></em>, taking the maximum predicted probability out of the softmax distribution; (2)&nbsp;<em><a href="https://arxiv.org/abs/2207.07061">state propagation</a></em>, the cosine distance between the current hidden representation and the one from the previous layer; and (3)&nbsp;<em>early-exit classifier,&nbsp;</em>the output of a classifier specifically trained for predicting local consistency. We find the softmax response to be statistically strong while being simple and fast to compute. The other two alternatives are lighter in&nbsp;<a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic">floating point operations</a>&nbsp;(FLOPS).</p>
+
+
+
+<p>Another challenge is that the&nbsp;<a href="https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)#Self-Attention">self-attention</a>&nbsp;of each layer depends on hidden-states from previous words. If we exit early for some word predictions, these hidden-states might be missing. Instead, we attend back to the hidden state of the last computed layer.</p>
+
+
+
+<p>Finally, we set up the local confidence threshold for exiting early. In the next section, we describe our controlled process for finding good threshold values. As a first step, we simplify this infinite search space by building on a useful observation: mistakes that are made at the beginning of the generation process are more detrimental since they can affect all of the following outputs. Therefore, we start with a higher (more conservative) threshold, and gradually reduce it with time. We use a negative exponent with user-defined temperature to control this decay rate. We find this allows better control over the performance-efficiency tradeoff (the obtained speedup per quality level).</p>
+
+
+
+<p>We run experiments on three popular generation datasets:&nbsp;<a href="https://github.com/abisee/cnn-dailymail">CNN/DM</a>&nbsp;for summarization,&nbsp;<a href="https://www.statmt.org/wmt15/translation-task.html">WMT</a>&nbsp;for machine translation, and&nbsp;<a href="https://rajpurkar.github.io/SQuAD-explorer/">SQuAD</a>&nbsp;for question answering. We evaluate each of the three confidence measures (softmax response, state propagation and early-exit classifier) using an 8-layer encoder-decoder model. To evaluate global sequence-level performance, we use the standard&nbsp;<a href="https://en.wikipedia.org/wiki/ROUGE_(metric)">Rouge-L</a>,&nbsp;<a href="https://en.wikipedia.org/wiki/BLEU">BLEU</a>, and&nbsp;<a href="https://arxiv.org/abs/1606.05250">Token-F1</a>&nbsp;scores that measure distances against human-written references. We show that one can maintain full model performance while using only a third or half of the layers on average. CALM achieves this by dynamically distributing the compute effort across the prediction timesteps.</p>
+
+
+
+<p>As an approximate upper bound, we also compute the predictions using a&nbsp;<a href="https://arxiv.org/abs/2207.07061">local oracle confidence measure</a>, which enables exiting at the first layer that leads to the same prediction as the top one. On all three tasks, the oracle measure can preserve full model performance when using only 1.5 decoder layers on average. In contrast to CALM, a static baseline uses the same number of layers for all predictions, requiring 3 to 7 layers (depending on the dataset) to preserve its performance. This demonstrates why the dynamic allocation of compute effort is important. Only a small fraction of the predictions require most of the model’s complexity, while for others much less should suffice.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://ahmadhassan0.github.io/wordpress/ai-working-system/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>AI</title>
+		<link>https://ahmadhassan0.github.io/wordpress/ai/</link>
+					<comments>https://ahmadhassan0.github.io/wordpress/ai/#respond</comments>
+		
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<pubDate>Tue, 17 Jan 2023 08:08:28 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<guid isPermaLink="false">https://ahmadhassan0.github.io/wordpress/?p=32</guid>
+
+					<description><![CDATA[In a quantum processor, the qubits host microwave photons, which can be made to interact through two-qubit operations. This allows us to simulate the&#160;XXZ model, which describes the behavior of&#160;interacting&#160;photons. Importantly, this is one of the&#160;few examples of integrable models,&#160;i.e.,&#160;one with a high degree of symmetry, which greatly reduces its complexity. When we implement the&#8230; <a class="more-link" href="https://ahmadhassan0.github.io/wordpress/ai/">Continue reading <span class="screen-reader-text">AI</span></a>]]></description>
+										<content:encoded><![CDATA[
+<p>In a quantum processor, the qubits host microwave photons, which can be made to interact through two-qubit operations. This allows us to simulate the&nbsp;<a href="https://en.wikipedia.org/wiki/Quantum_Heisenberg_model">XXZ model</a>, which describes the behavior of&nbsp;<em>interacting</em>&nbsp;photons. Importantly, this is one of the&nbsp;<a href="https://en.wikipedia.org/wiki/List_of_integrable_models">few examples of integrable models</a>,&nbsp;<em>i.e.,&nbsp;</em>one with a high degree of symmetry, which greatly reduces its complexity. When we implement the XXZ model on the Sycamore processor, we observe something striking: the interactions force the photons into bundles known as bound states.</p>
+
+
+
+<p>Using this well-understood model as a starting point, we then push the study into a less-understood regime. We break the high level of symmetries displayed in the XXZ model by adding extra sites that can be occupied by the photons, making the system no longer integrable. While this nonintegrable regime is expected to exhibit chaotic behavior where bound states dissolve into their usual, solitary selves, we instead find that they survive!</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://ahmadhassan0.github.io/wordpress/ai/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Hello world!</title>
+		<link>https://ahmadhassan0.github.io/wordpress/hello-world/</link>
+					<comments>https://ahmadhassan0.github.io/wordpress/hello-world/#comments</comments>
+		
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<pubDate>Tue, 17 Jan 2023 02:40:47 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<guid isPermaLink="false">https://ahmadhassan0.github.io/wordpress/?p=1</guid>
+
+					<description><![CDATA[Welcome to WordPress. This is your first post. Edit or delete it, then start writing!]]></description>
+										<content:encoded><![CDATA[
+<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://ahmadhassan0.github.io/wordpress/hello-world/feed/</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

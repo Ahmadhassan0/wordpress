@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>technology &#8211; TechBlog</title>
+	<atom:link href="https://ahmadhassan0.github.io/wordpress/tag/technology/feed/" rel="self" type="application/rss+xml" />
+	<link>https://ahmadhassan0.github.io/wordpress</link>
+	<description>this site only for testing</description>
+	<lastBuildDate>Tue, 17 Jan 2023 03:27:03 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>AI Technology</title>
+		<link>https://ahmadhassan0.github.io/wordpress/ai-technology-web/</link>
+					<comments>https://ahmadhassan0.github.io/wordpress/ai-technology-web/#comments</comments>
+		
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<pubDate>Tue, 17 Jan 2023 03:06:46 +0000</pubDate>
+				<category><![CDATA[Technology]]></category>
+		<category><![CDATA[tech]]></category>
+		<category><![CDATA[technology]]></category>
+		<guid isPermaLink="false">https://ahmadhassan0.github.io/wordpress/?p=5</guid>
+
+					<description><![CDATA[Featured image tecting]]></description>
+										<content:encoded><![CDATA[
+<p>A key property of DP that often plays a central role in <a href="http://ahmad.eu.org/" data-type="URL" data-id="ahmad.eu.org" target="_blank" rel="noreferrer noopener">understanding </a>privacy costs is that of&nbsp;<em>composition</em>, which reflects the net <a rel="noreferrer noopener" href="http://www.google.com/" target="_blank">privacy cost</a> of a combination of DP algorithms, viewed together as a single algorithm. A notable example is the&nbsp;<a href="https://arxiv.org/abs/1607.00133">differentially-private stochastic gradient descent</a>&nbsp;(DP-SGD) algorithm. This algorithm trains ML models over multiple iterations — each of which is differentially private — and therefore requires an application of the composition property of DP. A basic composition theorem in DP says that the privacy cost of a collection of algorithms is, at most, the sum of the privacy cost of each. However, in many cases, this can be a gross overestimate, and several improved composition theorems provide better estimates of the privacy cost of composition.</p>
+
+
+
+<p>In 2019, we released an&nbsp;<a href="https://developers.googleblog.com/2019/09/enabling-developers-and-organizations.html">open-source library</a>&nbsp;(on&nbsp;<a href="https://github.com/google/differential-privacy">GitHub</a>) to enable developers to use analytic techniques based on DP. Today, we announce the&nbsp;<a href="https://github.com/google/differential-privacy/commit/b4b26475acce0be9b7e9844db4af5a1b9929cab1">addition</a>&nbsp;to this library of&nbsp;<em>Connect-the-Dots</em>, a new privacy accounting algorithm based on a novel approach for discretizing&nbsp;<a href="https://petsymposium.org/popets/2019/popets-2019-0029.pdf">privacy loss distributions</a>&nbsp;that is a useful tool for understanding the privacy cost of composition. This algorithm is based on the paper “<a href="https://petsymposium.org/popets/2022/popets-2022-0122.pdf">Connect the Dots: Tighter Discrete Approximations of Privacy Loss Distributions</a>”, presented at&nbsp;<a href="https://petsymposium.org/2022/">PETS 2022</a>. The main novelty of this accounting algorithm is that it uses an indirect approach to construct more accurate discretizations of privacy loss distributions. We find that Connect-the-Dots provides significant gains over other privacy accounting methods in literature in terms of accuracy and running time. This algorithm was also recently applied for the&nbsp;<a href="https://ai.googleblog.com/2022/12/private-ads-prediction-with-dp-sgd.html">privacy accounting of DP-SGD in training Ads prediction models</a>.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://ahmadhassan0.github.io/wordpress/ai-technology-web/feed/</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>
